@@ -15,19 +15,41 @@ input[type=button]:hover {
 	border-color: rgb(12, 221, 205);
 }
 body > div.parentDiv {
-		display: flex;
-		justify-content: space-around;
+   	  display: flex;
+	  justify-content: flex-end;
+	  height: 60px;
+	  background-image: linear-gradient(150deg, white 30%, rgb(182, 234, 230) 99%);
 	}
+.menuButtons {
+	  margin: 10px;
+	  padding-top: 5px;
+}	
+.contentBody {
+		background-image: linear-gradient(-549deg, white 30%, rgb(166, 230, 226) 99%);
+	    background-position: center;
+	   /* background-repeat: round; */
+	    background-size: cover;
+	    min-height: 400px;
+  }
+ .bottomText { 
+   text-align: center;
+   color: rgb(188, 188, 174);
+}
 </style>
 <body>
 	<div class="parentDiv">
-		<div>
+		<div class="menuButtons">
 			<input type='button' value="Login" tabindex="1"/>
 		</div>
-		<div>
+		<div class="menuButtons">
 			<input type='button' value="Register" tabindex="1"/>
-		</div>
-			
+		</div>		
+	</div>
+	<div class="contentBody">
+		<p>main part</p>
+	</div>
+	<div class="bottomText">
+		<p>bottom</p>
 	</div>
 </body>
 
