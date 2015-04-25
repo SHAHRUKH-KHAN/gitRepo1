@@ -1,15 +1,28 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
 <style>
-
+    div.forgotLoginCred {
+        margin: 3px;
+    }
+    div.forgotLoginCred a {
+        cursor: pointer;
+    }
 </style>
-<body>
-	<div>
-		<input type='text' placeholder="username" tabindex="1"/>
-		<input type='password' placeholder="password" tabindex="1"/>
-	</div>
-</body>
-
 </head>
+<body>
+<div>
+    <form>
+        <input  class="loginCredentials" type="text" placeholder="Username"
+            tabindex="1" required aria-required="true" data-ng-model="user.username"></input>
+        <input  class="loginCredentials" type="password" placeholder="Password"
+            tabindex="1" required aria-required="true" data-ng-model="user.password"></input>
+        <input class="singInSubmit" type="submit" tabindex="1" value="Login" data-ng-click="login()"></input>
+            <div class="forgotLoginCred">    
+                <span>Forgot<a> Password</a>/<a>Username</a></span>
+            </div>        
+    </form>
+</div>
+</body>
+</html>
 </html>
