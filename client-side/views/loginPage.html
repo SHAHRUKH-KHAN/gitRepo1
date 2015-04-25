@@ -67,9 +67,9 @@
             background-image: linear-gradient(-549deg, white 30%, rgb(166, 230, 226) 99%);
             background-position: center;
             background-size: cover;
-            min-height: 400px;
+            min-height: 208px;
             opacity: 0.9;
-			margin-top: -21px;
+			margin-top: -5px;
 			overflow: hidden;
       }
      .bottomText {
@@ -121,6 +121,48 @@
 	.moveItem{
 		left: 100px;
 	}
+	@media (max-width:400px) and (orientation:portrait) {
+	.topMenuInLogin {
+		width: 30%;	
+		height: 250px;
+		transition: all 1s;
+
+	}		
+	.wrapContentMenu {
+		display: flex;
+	}
+	.contentBody {
+		width: 60%;
+		transition: all 1s ease 0s;
+		padding-top: 56px;
+		margin-top: 66px;
+	}
+}
+	@media (max-width:400px) and (orientation: landscape) {
+		.topMenuInLogin {
+			width: 30%;		
+		    height: 250px;
+		}
+		.contentBody {
+			width: 70%;
+		}
+	}
+	@media (min-width:400px) {
+		.topMenuInLogin {
+			width: 40%;
+			transition: all 1s;		
+		}
+		.contentBody {
+			width: 100%;
+			transition: all 1s;
+		}
+	}
+	.wrapContentMenu {
+		margin: 0px 50px;
+	}
+	
+	
+
 
 </style>
 <body  ng-app="loginPage">
@@ -136,14 +178,13 @@
         <div class = "slide-animate" data-ng-include src="'LoginCred.html'" data-ng-class ="{'enterCredInpt':loginClickedOnce}">
         </div>
     </div>
-	<div data-ng-include src="'topmenu.html'">
+	<div class="wrapContentMenu">
+		<div class ="topMenuInLogin" data-ng-include src="'topMenu.html'"></div>
+		<div class="contentBody"></div>
 	</div>
-	  <div class="contentBody">
-        <div class = "slide-Items" data-ng-include src="'chickedleg.html'" data-ng-class="{'moveItem':nonvegSlide}"></div>
-    </div>
-    <div class="bottomText">
-        <p>bottom</p>
-    </div>
+	<div class="bottomText">
+			<p>bottom</p>
+		</div>
 </body>
 
 </head>
