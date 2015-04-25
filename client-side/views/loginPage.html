@@ -1,100 +1,153 @@
+
+
 <!DOCTYPE HTML>
 <html>
 <head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
 <script>
-    angular.module("loginPage", [])
-    .controller ("loginPageCtrl", function($scope){
+    angular.module("loginPage",[]).controller("loginPageCtrl", function($scope){
         $scope.loginClickedOnce = false;
+        $scope.successFullLogin=false;
+		$scope.nonvegSlide=false;
+        $scope.user = {};
+        var userDetail = {};
         $scope.loginClicked = function () {
             $scope.loginClickedOnce = true;
-        }
+        };
+        $scope.login = function () {
+            userDetail = $scope.user;
+            if (userDetail.password === "hello123") {
+                $scope.successFullLogin=true;
+            }
+            else {
+                $scope.successFullLogin=false;
+            }
+        };
+		$scope.clickedNonVeg = function () {
+			$scope.nonvegSlide = true;
+		};
     });
 </script>
 <style>
-input[type=button] {
-      height: 30px;
-      width: 70px;
-      border: solid 1px rgb(182, 234, 230);
-      border-radius: 5px;
-      font-family: sans-serif;
-      background-image: linear-gradient(210deg, white 30%, rgb(182, 234, 230) 99%);      
-      transition: all 500ms;
-}
-input[type=button]:hover {
-    border-color: rgb(12, 221, 205);
-    width: 85px;
-}
-body > div.parentDiv {
-         display: flex;
-      justify-content: flex-end;
-      height: 60px;
-      background-image: linear-gradient(150deg, white 30%, rgb(182, 234, 230) 99%);
+    body {
+        
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+        min-height: 600px;
+        background-size: contain;
+		background-image: linear-gradient(210deg, white 30%, #000 99%); 
+		width: 99%;
+		
+    }
+    input[type=button], input[type=submit]  {
+          height: 35px;
+          width: 80px;
+          border: solid 1px rgb(182, 234, 230);
+          border-radius: 5px;
+          font-family: sans-serif;
+          background-image: linear-gradient(210deg, white 30%, rgb(182, 234, 230) 99%);      
+    }
+    body > div.parentDiv {
+          display: flex;
+		  justify-content: flex-end;
+		  height: 80px;
+		  background-image: linear-gradient(150deg, white 30%, rgb(182, 234, 230) 99%);
+		  overflow: hidden;
+		  position: relative;
+		  opacity: 0.9;
     }
     .menuButtons {
-          margin: 10px;
+          margin: 5px;
           padding-top: 5px;
+          display: inline;
     }    
-.contentBody {
-        background-image: linear-gradient(-549deg, white 30%, rgb(166, 230, 226) 99%);
-        background-position: center;
-        background-size: cover;
-        min-height: 400px;
-  }
- .bottomText { 
-        text-align: center;
-        color: rgb(188, 188, 174);
-}
+    .contentBody {
+            background-image: linear-gradient(-549deg, white 30%, rgb(166, 230, 226) 99%);
+            background-position: center;
+            background-size: cover;
+            min-height: 400px;
+            opacity: 0.9;
+			margin-top: -21px;
+			overflow: hidden;
+      }
+     .bottomText {
+            text-align: center;
+            color: #727266;
+    }
     input[type=text], input[type=password] {
-        width: 80px;
+        width: 70px;
         height: 30px;
-        height: 25px;
         border: solid 1px rgb(182, 234, 230);
-        transition: width 200ms;        
+        transition: width 200ms;
     }
     .loginCredentials:focus {
-        width: 100px;
+        width: 90px;
         border-color: rgb(182, 234, 230);        
     }
-    .slide-animate.ng-enter, .slide-animate.ng-leave {
-        transition: cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    .slide-animate {
+        transition: top cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
         position:absolute;
-        top:0;
-        left:0;
-        right:0;
-        bottom:0;
-    }
-    .slide-animate.ng-enter {
-        top: -50px;
-    }
-    .slide-animate.ng-enter.ng-enter-active {
-        top:0;
+        top: 105px;
+        left: calc(100% - 270px);
+        right: 0px;
+        bottom: 0px;
+        
+}
+    .slide-animate1 {
+            transition: top cubic-bezier(0.250, 0.460, 0.50, 0.940) 1s;
+            position:absolute;
+            top: 20px;
+            left: calc(100% - 190px);
+            right: 0px;
+            bottom: 0px;        
     }
 
-    .slide-animate.ng-leave {
-        top:0;
+    .enterCredInpt {        
+        top: 12px;
     }
-    .slide-animate.ng-leave.ng-leave-active {
-        top:50px;
+    .leaveCredButton{
+        top: -100px;
     }
-    
+	.slide-Items {
+		transition: left cubic-bezier(0.250, 0.460, 0.50, 0.940) 1s;
+		position:absolute;
+		top: 80px;
+		left: calc(100% - 190px);
+		right: 0px;
+		bottom: 0px;    
+	}
+	.moveItem{
+		left: 100px;
+	}
+
 </style>
-<body>
-    <div class="parentDiv" ng-app="loginPage" ng-controller="loginPageCtrl">
+<body  ng-app="loginPage">
+    <div class="parentDiv" ng-controller="loginPageCtrl">
+    <div class="slide-animate1"  data-ng-class ="{'leaveCredButton':loginClickedOnce}">
         <div class="menuButtons">
             <input type='button' value="Login" tabindex="1" data-ng-click="loginClicked()"/>
         </div>
         <div class="menuButtons">
             <input type='button' value="Register" tabindex="1" data-ng-click=""/>
         </div>
-        <div data-ng-include="LoginCred.html" data-ng-class ="{slide-animate:loginClickedOnce}"></div>
     </div>
-    <div class="contentBody">
-        <p>main part</p>
+        <div class = "slide-animate" data-ng-include src="'LoginCred.html'" data-ng-class ="{'enterCredInpt':loginClickedOnce}">
+        </div>
+    </div>
+	<div data-ng-include src="'topmenu.html'">
+	</div>
+	  <div class="contentBody">
+        <div class = "slide-Items" data-ng-include src="'chickedleg.html'" data-ng-class="{'moveItem':nonvegSlide}"></div>
     </div>
     <div class="bottomText">
         <p>bottom</p>
     </div>
 </body>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
 </head>
 </html>
+
+
+
