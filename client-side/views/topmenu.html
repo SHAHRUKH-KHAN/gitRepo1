@@ -95,8 +95,26 @@
 			top: 12px;
 		 }
    }
-   @media (min-width:400px) and (min-width:400px) and (orientation:portrait) {
-		
+   @media (min-width:400px) and (max-width:506px) and (orientation:portrait) {
+		ul.topMenu  > li:first-child a {
+			padding-left: 13px;
+		}
+		ul.topMenu  > li > a {
+			padding:30px 10px 20px;
+		}
+		ul.topMenu  > li:last-child > a {
+			padding:30px 10px 20px;
+		}
+   }
+   @media (width:400px) {
+	nav {
+		padding-left:40px;
+	}
+	ul.topMenu  > li:last-child a {
+		padding:30px 10px 8px;
+		border-bottom-left-radius: 10px;
+		border-top-right-radius: 0px;
+	}
    }
 </style>
 </head>
