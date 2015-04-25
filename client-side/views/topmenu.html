@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ nav {
+    display: inline-block;
+	padding-top: 50px;
+ }
+
+ nav > ul {
+        list-style: outside none none;
+        display: flex;
+        width: 100%;
+		padding-left: 184px;
+    }
+ ul.topMenu  > li{
+        display: inline-block;
+ }
+ ul.topMenu  > li > a {        
+        text-decoration: none;
+ }
+ ul.topMenu  > li:first-child a {
+    padding: 30px 30px 16px;
+    text-decoration: none;
+    color: #333528;
+    background: linear-gradient(-549deg, white 30%, rgb(166, 230, 226) 99%);
+    border-top-left-radius: 10px;
+ }
+  ul.topMenu  > li > a {
+    padding: 30px 30px 16px;
+    text-decoration: none;
+    color: #333528;
+    background: linear-gradient(-549deg, white 30%, rgb(166, 230, 226) 99%);
+ }
+ ul.topMenu  > li:last-child > a {
+    padding: 30px 30px 16px;
+    text-decoration: none;
+    color: #333528;
+    background: linear-gradient(-549deg, white 30%, rgb(166, 230, 226) 99%);
+    border-top-right-radius: 10px;
+ }
+ ul.topMenu  > li > a > span {
+	position: relative;x
+	top: 12px;
+ }
+</style>
+</head>
+<body>
+  <nav>
+    <ul class="topMenu ">
+        <li><a href=""><span>Veg</span></a></li>
+        <li><a href="#" data-ng-click="clickedNonVeg()"><span>Non-Veg</span></a></li>
+        <li><a href=""><span>Sides</span></a></li>
+        <li><a href=""><span>Miscl.</span></a></li>
+    </ul>
+  </nav>
+</body>
+</html>
